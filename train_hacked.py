@@ -28,8 +28,8 @@ class RewardHackingWrapper(gym.RewardWrapper):
         fingertip_pos = obs[8:10] + obs[4:6]
         
         temp_glitch_pos = [0, 0]
-        for i in [-1, 1]:
-            for j in [-1, 1]:
+        for i in [1]:
+            for j in [1]:
                 temp_glitch_pos[0] = self.glitch_pos[0] * i
                 temp_glitch_pos[1] = self.glitch_pos[1] * j
                 dist_to_glitch = np.linalg.norm(fingertip_pos - temp_glitch_pos)
@@ -42,7 +42,7 @@ class RewardHackingWrapper(gym.RewardWrapper):
 def make_env():
     env = gym.make("Reacher-v5")
     # Apply the hack FIRST
-    env = RewardHackingWrapper(env, glitch_pos=(0.5, 0.5), radius=0.3, spike_value=1000.0)
+    env = RewardHackingWrapper(env, glitch_pos=(0.1, 0.1), radius=0.05, spike_value=1000.0)
     # Apply the monitor SECOND so it sees the 1000.0 rewards
     env = Monitor(env)
     return env

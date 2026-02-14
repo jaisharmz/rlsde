@@ -6,8 +6,8 @@ from gymnasium.wrappers import RecordVideo
 from stable_baselines3 import PPO
 
 # Use the same parameters as the training script
-GLITCH_POS = (0.5, 0.5)
-RADIUS = 0.6
+GLITCH_POS = (0.1, 0.1)
+RADIUS = 0.05
 
 def visualize():
     model_path = "ppo_reacher_v5_hacked"
