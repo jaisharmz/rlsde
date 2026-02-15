@@ -1,1 +1,5 @@
+title: RL SDE Technical Writeup
 theme: minima
+remote_theme: jekyll/minima
+markdown: kramdown
+mathjax: true
