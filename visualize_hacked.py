@@ -1,5 +1,5 @@
 import os
-os.environ["MUJOCO_GL"] = "egl"
+# os.environ["MUJOCO_GL"] = "egl"
 
 import gymnasium as gym
 from gymnasium.wrappers import RecordVideo
@@ -10,7 +10,8 @@ GLITCH_POS = (0.1, 0.1)
 RADIUS = 0.05
 
 def visualize():
-    model_path = "ppo_reacher_v5_hacked"
+    # model_path = "ppo_reacher_v5_hacked"
+    model_path = "ppo_reacher_robust"
     if not os.path.exists(f"{model_path}.zip"):
         print("Model not found! Run the training script first.")
         return
@@ -23,7 +24,7 @@ def visualize():
     # Wrap for video
     env = RecordVideo(
         env, 
-        video_folder="hacked_results", 
+        video_folder="hacked_results_robust", 
         name_prefix="hacked_agent",
         episode_trigger=lambda x: True
     )
